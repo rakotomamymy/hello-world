@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default class Login extends React.PureComponent {
+
     state = {
         login : '',
         password : '',
@@ -9,9 +10,10 @@ export default class Login extends React.PureComponent {
         expectedPassword : 'zoro'
     };
 
-    authenticate = () => {
+    authenticate = () => {        
         if ((this.state.login === this.state.expectedLogin) && (this.state.password === this.state.expectedPassword)) {
             this.setState({authMessage : 'User logged in'});
+            this.props.history.push("/Home");
         }            
         else
             this.setState({authMessage : 'Unrecognized identity'});        
