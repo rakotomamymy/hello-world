@@ -11,8 +11,14 @@ export default class Login extends React.PureComponent {
     };
 
     authenticate = () => {        
-        if ((this.state.login === this.state.expectedLogin) && (this.state.password === this.state.expectedPassword)) {
+        if ((this.state.login === this.state.expectedLogin) && (this.state.password === this.state.expectedPassword)) 
+        {
             this.setState({authMessage : 'User logged in'});
+
+            const {login} = this.state;
+            localStorage.setItem('isAuthenticated', `true`);
+            localStorage.setItem('login', login);
+
             this.props.history.push("/Home");
         }            
         else
@@ -25,6 +31,14 @@ export default class Login extends React.PureComponent {
     
     onPasswordChange = (e) => {
         this.setState({password : e.target.value});
+    }
+
+    componentDidMount(){
+        const isAuthenticated = localStorage.getItem('isAuthenticated');
+        const login = localStorage.getItem('login');
+        if (isAuthenticated === 'true' && login !== ''){
+            this.props.history.push('/Home/');
+        }
     }
 
     render() {
