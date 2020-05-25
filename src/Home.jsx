@@ -10,13 +10,22 @@ export default class Home extends React.PureComponent
         ]
     }
 
+    logOut = () => {
+        this.props.history.push('/Login/');
+    };
+
     render(){
         return (
             <div>
-                <h3>List of all my cars</h3>
-                {this.state.cars.map(
-                    car => <Car key={car.id} brand={car.brand} model={car.model}/>
-                )}
+                <div>
+                    <button onClick={this.logOut}>Log out</button>
+                </div>
+                <div>
+                    <h3>List of all my cars</h3>
+                    {
+                        this.state.cars.map(car => <Car key={car.id} brand={car.brand} model={car.model}/>)
+                    }
+                </div>                
             </div>
         );
     }
