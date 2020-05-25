@@ -18,13 +18,15 @@ export default class Home extends React.PureComponent
         return (
             <div>
                 <div>
-                    <button onClick={this.logOut}>Log out</button>
+                    <button className="btn btn-default" onClick={this.logOut}>Log out</button>
                 </div>
                 <div>
                     <h3>List of all my cars</h3>
+                    <div className="m-2">
                     {
                         this.state.cars.map(car => <Car key={car.id} brand={car.brand} model={car.model}/>)
                     }
+                    </div>                    
                 </div>                
             </div>
         );

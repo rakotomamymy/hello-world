@@ -31,17 +31,24 @@ export default class Login extends React.PureComponent {
         return (
             <div>
                 <h3>Identify yourself</h3>
-                <div>Login : {this.state.login}</div>
-                <div>Password : {this.state.password}</div>
-                <div>Authentication message : {this.state.authMessage}</div>
-                <div>
-                    <input type="text" placeholder="Enter your login" onChange={this.onLoginChange}/>
+
+                <div className="m-2">
+                    <div>Login : {this.state.login}</div>
+                    <div>Password : {this.state.password}</div>
+                    <div>Authentication message : {this.state.authMessage}</div>
                 </div>
-                <div>
-                    <input type="password" placeholder="Enter your password" onChange={this.onPasswordChange}/>
+                
+                <div className="m-2">
+                    <div>
+                        <input type="text" placeholder="Enter your login" onChange={this.onLoginChange}/>
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Enter your password" onChange={this.onPasswordChange}/>
+                    </div>
                 </div>
-                <div>
-                    <input type="button" value="Login" onClick={this.authenticate}/>
+                
+                <div className="m-2">
+                    <input className="btn btn-default" type="button" value="Login" onClick={this.authenticate}/>
                 </div>
             </div>            
         );
